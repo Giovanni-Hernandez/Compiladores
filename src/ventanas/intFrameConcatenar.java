@@ -5,6 +5,9 @@
  */
 package ventanas;
 
+import java.util.Set;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author argio
@@ -16,6 +19,13 @@ public class intFrameConcatenar extends javax.swing.JInternalFrame {
      */
     public intFrameConcatenar() {
         initComponents();
+        
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        Set<String> keys = ventana.AFNBasicos.keySet();
+        for(String key : keys){
+            cmbAFN1.addItem(key);
+            cmbAFN2.addItem(key);
+        }
     }
 
     /**
@@ -41,6 +51,11 @@ public class intFrameConcatenar extends javax.swing.JInternalFrame {
         btnConcatenarAFN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConcatenarAFN.setForeground(new java.awt.Color(255, 255, 255));
         btnConcatenarAFN.setText("Concatenar");
+        btnConcatenarAFN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConcatenarAFNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +86,16 @@ public class intFrameConcatenar extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConcatenarAFNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConcatenarAFNActionPerformed
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        
+        String AFN1key = (String)cmbAFN1.getSelectedItem();
+        String AFN2key = (String)cmbAFN2.getSelectedItem();
+        ventana.AFNBasicos.get(AFN1key).concaAFN(ventana.AFNBasicos.get(AFN2key));
+        JOptionPane.showMessageDialog(this, "Los autómatas se han concatenado", "Concatenación de AFNs",JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_btnConcatenarAFNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

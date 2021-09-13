@@ -5,6 +5,9 @@
  */
 package ventanas;
 
+import java.util.Set;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author argio
@@ -16,6 +19,11 @@ public class intFrameOpc extends javax.swing.JInternalFrame {
      */
     public intFrameOpc() {
         initComponents();
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        Set<String> keys = ventana.AFNBasicos.keySet();
+        for(String key : keys){
+            cmbAFN.addItem(key);
+        }
     }
 
     /**
@@ -27,27 +35,74 @@ public class intFrameOpc extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cmbAFN = new javax.swing.JComboBox<>();
+        btnCerraduraOpcional = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Opcional");
+        setTitle("Cerradura Opcional AFN");
+
+        cmbAFN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAFNActionPerformed(evt);
+            }
+        });
+
+        btnCerraduraOpcional.setBackground(new java.awt.Color(102, 0, 153));
+        btnCerraduraOpcional.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCerraduraOpcional.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerraduraOpcional.setText("Obtener");
+        btnCerraduraOpcional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerraduraOpcionalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(109, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(cmbAFN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCerraduraOpcional, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(cmbAFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(btnCerraduraOpcional, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbAFNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAFNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAFNActionPerformed
+
+    private void btnCerraduraOpcionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerraduraOpcionalActionPerformed
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        
+        String AFN1key = (String)cmbAFN.getSelectedItem();
+        ventana.AFNBasicos.get(AFN1key).cerrOpcional();
+        JOptionPane.showMessageDialog(this, "Se ha obtenenido la Cerradura Opcional ?", "Cerradura Opcional AFN",JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_btnCerraduraOpcionalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerraduraOpcional;
+    private javax.swing.JComboBox<String> cmbAFN;
     // End of variables declaration//GEN-END:variables
 }

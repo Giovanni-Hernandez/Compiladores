@@ -32,13 +32,16 @@ public class Interfaz extends javax.swing.JFrame {
         miAFNCerraduraPositiva = new javax.swing.JMenuItem();
         miAFNCerraduraKleene = new javax.swing.JMenuItem();
         miAFNOpcional = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        miUnionAnalizadorLexico = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Hernández Rodríguez Armando Giovanni");
-        setMaximumSize(new java.awt.Dimension(1477, 830));
+        setTitle("Nombre(s)");
         setMinimumSize(new java.awt.Dimension(1477, 830));
-        setPreferredSize(new java.awt.Dimension(1190, 669));
         setResizable(false);
         setSize(new java.awt.Dimension(1477, 830));
 
@@ -115,6 +118,31 @@ public class Interfaz extends javax.swing.JFrame {
         });
         menuAFN.add(miAFNOpcional);
 
+        jMenuItem1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jMenuItem1.setText("ER--->AFN");
+        menuAFN.add(jMenuItem1);
+
+        miUnionAnalizadorLexico.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        miUnionAnalizadorLexico.setText("Unión para Analizador Léxico");
+        miUnionAnalizadorLexico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miUnionAnalizadorLexicoActionPerformed(evt);
+            }
+        });
+        menuAFN.add(miUnionAnalizadorLexico);
+
+        jMenuItem3.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jMenuItem3.setText("Convertir AFN a AFD");
+        menuAFN.add(jMenuItem3);
+
+        jMenuItem4.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jMenuItem4.setText("Analizar una cadena");
+        menuAFN.add(jMenuItem4);
+
+        jMenuItem5.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jMenuItem5.setText("Probar Analizador Léxico");
+        menuAFN.add(jMenuItem5);
+
         jMenuBar1.add(menuAFN);
 
         jMenu2.setText("Análisis Sintáctico");
@@ -173,6 +201,12 @@ public class Interfaz extends javax.swing.JFrame {
         abrirVentana.show();
     }//GEN-LAST:event_miAFNCerraduraPositivaActionPerformed
 
+    private void miUnionAnalizadorLexicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUnionAnalizadorLexicoActionPerformed
+        intFrameUnionAnalizador abrirVentana = new intFrameUnionAnalizador();
+        dskEscritorio.add(abrirVentana);
+        abrirVentana.show();
+    }//GEN-LAST:event_miUnionAnalizadorLexicoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -212,6 +246,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JDesktopPane dskEscritorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu menuAFN;
     private javax.swing.JMenuItem miAFNBasico;
     private javax.swing.JMenuItem miAFNCerraduraKleene;
@@ -219,5 +257,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAFNOpcional;
     private javax.swing.JMenuItem miAFNUnir;
     private javax.swing.JMenuItem miConcatenarAFN;
+    private javax.swing.JMenuItem miUnionAnalizadorLexico;
     // End of variables declaration//GEN-END:variables
 }

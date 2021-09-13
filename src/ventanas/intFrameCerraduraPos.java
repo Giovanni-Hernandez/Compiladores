@@ -5,6 +5,9 @@
  */
 package ventanas;
 
+import java.util.Set;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author argio
@@ -16,6 +19,11 @@ public class intFrameCerraduraPos extends javax.swing.JInternalFrame {
      */
     public intFrameCerraduraPos() {
         initComponents();
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        Set<String> keys = ventana.AFNBasicos.keySet();
+        for(String key : keys){
+            cmbAFN.addItem(key);
+        }
     }
 
     /**
@@ -27,8 +35,8 @@ public class intFrameCerraduraPos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        cmbAFN = new javax.swing.JComboBox<>();
+        btnCerraduraPositiva = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -36,40 +44,54 @@ public class intFrameCerraduraPos extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Cerradura Positiva o Transitiva AFN");
 
-        jButton1.setBackground(new java.awt.Color(102, 0, 153));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Obtener");
+        btnCerraduraPositiva.setBackground(new java.awt.Color(102, 0, 153));
+        btnCerraduraPositiva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCerraduraPositiva.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerraduraPositiva.setText("Obtener");
+        btnCerraduraPositiva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerraduraPositivaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGap(153, 153, 153)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnCerraduraPositiva, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmbAFN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbAFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addComponent(btnCerraduraPositiva, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCerraduraPositivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerraduraPositivaActionPerformed
+        intFrameAFNBasico ventana = new intFrameAFNBasico();
+        
+        String AFN1key = (String)cmbAFN.getSelectedItem();
+        ventana.AFNBasicos.get(AFN1key).cerrPos();
+        JOptionPane.showMessageDialog(this, "Se ha obtenenido la Cerradura Positiva +", "Cerradura Positiva AFN",JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+    }//GEN-LAST:event_btnCerraduraPositivaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnCerraduraPositiva;
+    private javax.swing.JComboBox<String> cmbAFN;
     // End of variables declaration//GEN-END:variables
 }
